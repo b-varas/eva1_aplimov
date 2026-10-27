@@ -1,21 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mis tareas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input label="Título" labelPlacement="floating" [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea label="Descripción" labelPlacement="floating" [(ngModel)]="descripcion"></ion-textarea>
+  </ion-item>
+  <ion-button expand="" class="ion-margin-top" (click)="guardar()">
+    {{ editandoId !== null ? 'Actualizar tarea' : 'Guardar tarea' }}
+  </ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a>
-    </p>
-  </div>
+  <ion-list class="ion-margin-top">
+    @for (t of tareas; track t.id) {
+      <ion-item>
+        <ion-label>
+          <h2>{{ t.titulo }}</h2>
+          <p>{{ t.descripcion }}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="editar(t)">
+            <ion-icon name="create" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" (click)="eliminar(t.id)">
+            <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    } @empty {
+      <ion-item><ion-label>No hay tareas pendientes</ion-label></ion-item>
+    }
+  </ion-list>
 </ion-content>
