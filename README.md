@@ -1,4 +1,4 @@
-# To-Do List con Ionic y Angular
+# To-Do List (Mis Tareas) con Ionic y Angular
 
 Aplicación móvil básica para registrar y administrar una lista de tareas pendientes. Cada tarea tiene un título y una descripción, y se puede agregar, editar y eliminar.
 
