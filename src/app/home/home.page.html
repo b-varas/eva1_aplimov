@@ -11,7 +11,7 @@
   <ion-item>
     <ion-textarea label="Descripción" labelPlacement="floating" [(ngModel)]="descripcion"></ion-textarea>
   </ion-item>
-  <ion-button expand="" class="ion-margin-top" (click)="guardar()">
+  <ion-button class="ion-margin-top" (click)="guardar()">
     {{ editandoId !== null ? 'Actualizar tarea' : 'Guardar tarea' }}
   </ion-button>
 
